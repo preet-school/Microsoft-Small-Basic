@@ -63,7 +63,6 @@ yposdelta = 0
 While done = 0 Or yposdelta > 0
 MovePiece() 'in: ypos, xpos, h
 
-' Delay, but break if the delay get set to 0 if the piece gets dropped
 delayIndex = delay
 While delayIndex > 0 And delay > 0
 Program.Delay(10)
@@ -76,19 +75,18 @@ Else
 ypos = ypos + 1 ' otherwise, move the piece down.
 EndIf
 
-' Check if the piece should stop.
 CheckStop() ' in: ypos, xpos, h ret: done
 EndWhile
 EndWhile
 EndSub
 
 Sub HandleKey
-' Stop game
+
 If GraphicsWindow.LastKey = "Escape" Then
 Program.End()
 EndIf
 
-' Move piece left
+
 If GraphicsWindow.LastKey = "Left" Then
 moveDirection = -1
 ValidateMove() ' in: ypos, xpos, h, moveDirection ret: invalidMove = 1 or -1 or 2 if move is invalid, otherwise 0
@@ -98,7 +96,6 @@ EndIf
 MovePiece() 'in: ypos, xpos, h
 EndIf
 
-' Move piece right
 If GraphicsWindow.LastKey = "Right" Then
 moveDirection = 1
 ValidateMove() ' in: ypos, xpos, h, moveDirection ret: invalidMove = 1 or -1 or 2 if move is invalid, otherwise 0
@@ -108,12 +105,10 @@ EndIf
 MovePiece() 'in: ypos, xpos, h
 EndIf
 
-' Move piece down
 If GraphicsWindow.LastKey = "Down" or GraphicsWindow.LastKey = "Space" Then
 delay = 0
 EndIf
 
-' Rotate piece
 If GraphicsWindow.LastKey = "Up" Then
 basetemplate = Array.GetValue(h, -1) ' Array.GetValue(h, -1) = the template name
 template = "temptemplate"
@@ -124,11 +119,9 @@ Array.SetValue(h, -1, template) ' Array.GetValue(h, -1) = the template name
 moveDirection = 0
 ValidateMove() ' in: ypos, xpos, h, moveDirection ret: invalidMove = 1 or -1 or 2 if move is invalid, otherwise 0
 
-' See if it can be moved so that it will rotate.
 xposbk = xpos
 yposdelta = 0
-While yposdelta = 0 And Math.Abs(xposbk - xpos) < 3 ' move up to 3 times only
-' if the rotation move worked, copy the temp to "rotatedtemplate" and use that from now on
+While yposdelta = 0 And Math.Abs(xposbk - xpos) < 3
 If invalidMove = 0 Then
 basetemplate = template
 template = "rotatedtemplate"
@@ -138,10 +131,9 @@ CopyPiece() 'in basetemplate, template, rotation
 yposdelta = 1 ' Don't move down if we rotate
 MovePiece() 'in: ypos, xpos, h
 ElseIf invalidMove = 2 Then
-' Don't support shifting piece when hitting another piece to the right or left.
+
 xpos = 99 ' exit the loop
 Else
-' if the rotated piece can't be placed, move it left or right and try again.
 xpos = xpos - invalidMove
 ValidateMove() ' in: ypos, xpos, h, moveDirection ret: invalidMove = 1 or -1 or 2 if move is invalid, otherwise 0
 EndIf
@@ -171,7 +163,6 @@ XOFFSET = XOFFSETBK
 YOFFSET = YOFFSETBK
 EndSub
 
-' creates template that's a rotated basetemplate
 Sub CopyPiece 'in basetemplate, template, rotation
 L = Array.GetValue(basetemplate, "dim")
 
@@ -179,10 +170,9 @@ If rotation = "CW" Then
 For i = 0 to BOXES - 1 ' x' = y y' = L - 1 - x
 v = Array.GetValue(basetemplate, i)
 
-'x = Math.Floor(v/10)
-'y = Math.Remainder(v, 10)
 
-' new x and y
+
+
 x = (Math.Remainder(v, 10))
 y = (L - 1 - Math.Floor(v/10))
 Array.SetValue(template, i, x * 10 + y)
@@ -191,10 +181,8 @@ EndFor
 ElseIf rotation = "CCW" Then
 For i = 0 to BOXES - 1 ' x' = L - 1 - y y' = x
 v = Array.GetValue(basetemplate, i)
-'x = Math.Floor(v/10)
-'y = Math.Remainder(v, 10)
 
-' new x and y
+
 x = (L - 1 - Math.Remainder(v, 10))
 y = Math.Floor(v/10)
 Array.SetValue(template, i, x * 10 + y)
@@ -208,7 +196,6 @@ GraphicsWindow.ShowMessage("invalid parameter", "Error")
 Program.End()
 EndIf
 
-' Copy the remain properties from basetemplate to template.
 Array.SetValue(template, "color", Array.GetValue(basetemplate, "color"))
 Array.SetValue(template, "dim", Array.GetValue(basetemplate, "dim"))
 Array.SetValue(template, "pviewx", Array.GetValue(basetemplate, "pviewx"))
@@ -239,8 +226,6 @@ v = Array.GetValue(Array.GetValue(h, -1), i) ' Array.GetValue(h, -1) = the templ
 x = Math.Floor(v/10)
 y = Math.Remainder(v, 10)
 
-' Array.GetValue(h, i) = box for piece h.
-' xpos/ypos = are topleft of shape. x/y is the box offset within the shape.
 Shapes.Move(Array.GetValue(h, i), XOFFSET + xpos * BWIDTH + x * BWIDTH, YOFFSET + ypos * BWIDTH + y * BWIDTH)
 EndFor
 EndSub
@@ -251,7 +236,6 @@ invalidMove = 0
 While i < BOXES
 v = Array.GetValue(Array.GetValue(h, -1), i) ' Array.GetValue(h, -1) = the template name
 
-'x/y is the box offset within the shape.
 x = Math.Floor(v/10)
 y = Math.Remainder(v, 10)
 
@@ -281,7 +265,6 @@ i = 0
 While i < BOXES
 v = Array.GetValue(Array.GetValue(h, -1), i) ' Array.GetValue(h, -1) = the template name
 
-'x/y is the box offset within the shape.
 x = Math.Floor(v/10)
 y = Math.Remainder(v, 10)
 
@@ -292,8 +275,7 @@ EndIf
 
 i = i + 1
 EndWhile
-
-' If we need to stop the piece, move the box handles to the canvas
+as
 If done = 1 Then
 For i = 0 to BOXES - 1
 v = Array.GetValue(Array.GetValue(h, -1), i) ' Array.GetValue(h, -1) = the template name
@@ -302,11 +284,10 @@ v = Array.GetValue(Array.GetValue(h, -1), i) ' Array.GetValue(h, -1) = the templ
 Array.SetValue("c", (Math.Floor(v/10) + xpos) + (Math.Remainder(v, 10) + ypos - 1) * CWIDTH, Array.GetValue(h, i))
 EndFor
 
-' 1 points for every piece successfully dropped
+
 score = score + 1
 PrintScore()
 
-' Delete clared lines
 DeleteLines()
 EndIf
 EndSub
@@ -315,10 +296,10 @@ EndSub
 Sub DeleteLines
 linesCleared = 0
 
-' Iterate over each row, starting from the bottom
+
 For y = CHEIGHT - 1 to 0 Step -1
 
-' Check to see if the whole row is filled
+
 x = CWIDTH
 While x = CWIDTH
 x = 0
@@ -330,16 +311,14 @@ EndIf
 x = x + 1
 EndWhile
 
-' if non of them were empty (i.e "."), then remove the line.
+
 If x = CWIDTH Then
 
-' Delete the line
 For x1 = 0 to CWIDTH - 1
 Shapes.Remove(Array.GetValue("c", x1 + y * CWIDTH))
 EndFor
 linesCleared = linesCleared + 1
 
-' Move everything else down one.
 For y1 = y To 1 Step -1
 For x1 = 0 to CWIDTH - 1
 piece = Array.GetValue("c", x1 + (y1 - 1) * CWIDTH)
@@ -358,7 +337,6 @@ EndIf
 EndSub
 
 Sub SetupCanvas
-' GraphicsWindow.DrawResizedImage( Flickr.GetRandomPicture( "bricks" ), 0, 0, GraphicsWindow.Width, GraphicsWindow.Height)
 
 
 GraphicsWindow.BrushColor = GraphicsWindow.BackgroundColor
@@ -406,18 +384,18 @@ GraphicsWindow.DrawText(x + 25, y + 260, "Up Arrow = Rotate piece")
 GraphicsWindow.DrawText(x + 25, y + 280, "Down Arrow = Drop piece")
 GraphicsWindow.DrawText(x, y + 320, "Press to stop game")
 
-Program.Delay(200) ' without this delay, the above text will use the fontsize of the score
+Program.Delay(200)
 
 GraphicsWindow.BrushColor = "Black"
 GraphicsWindow.FontName = "Georgia"
 GraphicsWindow.FontItalic = "True"
 GraphicsWindow.FontSize = 36
 GraphicsWindow.DrawText(x - 20, y + 400, "Small Basic Tetris")
-Program.Delay(200) ' without this delay, the above text will use the fontsize of the score
+Program.Delay(200)
 GraphicsWindow.FontSize = 16
 GraphicsWindow.DrawText(x - 20, y + 440, "ver.0.1")
 
-Program.Delay(200) ' without this delay, the above text will use the fontsize of the score
+Program.Delay(200) 
 score = 0
 PrintScore()
 EndSub
@@ -438,13 +416,7 @@ EndSub
 
 
 Sub SetupTemplates
-' each piece has 4 boxes.
-' the index of each entry within a piece represents the box number (1-4)
-' the value of each entry represents to box zero-based box coordinate within the piece: tens place is x, ones place y
 
-'_X_
-'_X_
-'_XX
 
 Array.SetValue("template1", 0, 10)
 Array.SetValue("template1", 1, 11)
