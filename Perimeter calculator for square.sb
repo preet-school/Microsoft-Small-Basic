@@ -1,6 +1,0 @@
-TextWindow.Title = "Perimeter calculator for square"
-TextWindow.WriteLine("Enter the side of the square: ")
-side=TextWindow.ReadNumber()
-perimeter=side*4
-TextWindow.WriteLine("")
-TextWindow.WriteLine("The perimeter of the square is " + perimeter)
