@@ -13,4 +13,7 @@ No problem! Here is a Medium blog to help you learn it -
 
 https://t.co/yDnKgVbgMM
 
-More blogs are coming from him! I will regularly update this for you guys :D
+More blogs are coming from me! I will regularly update this for you guys :D
+
+# Important!
+As now I shifted to Mac, the file formats will not be .sb, but .txt so yeah sorry :(
