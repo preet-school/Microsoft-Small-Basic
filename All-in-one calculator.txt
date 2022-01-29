@@ -1,0 +1,15 @@
+TextWindow.Title = "All-in-one calculator"
+TextWindow.WriteLine("Enter your first number: ")
+number1=TextWindow.ReadNumber()
+TextWindow.WriteLine("Enter your second number: ")
+number2=TextWindow.ReadNumber()
+addition=number1+number2
+subtraction=number1-number2
+multiplication=number1*number2
+division=number1/number2
+TextWindow.WriteLine("")
+TextWindow.WriteLine("")
+TextWindow.WriteLine("Addition: " + addition)
+TextWindow.WriteLine("Subtraction: " + subtraction)
+TextWindow.WriteLine("Multiplication: " + multiplication)
+TextWindow.WriteLine("Division: " + division)
