@@ -1,0 +1,6 @@
+TextWindow.Title="Circle perimeter calculator"
+TextWindow.WriteLine("Enter the radius of the circle: ")
+radius=TextWindow.ReadNumber()
+pie=3.14
+perimeter=2*pie*radius
+TextWindow.WriteLine("The perimeter of the circle is " + perimeter)
