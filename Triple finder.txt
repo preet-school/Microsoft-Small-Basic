@@ -1,4 +1,4 @@
-TextWindow.Title="Triple-finder"
+TextWindow.Title="Triple finder"
 TextWindow.WriteLine("Hello to Preet's new experiment. This is double-finder. This can find area/perimeter of square/rectangle with the help of user's input")
 TextWindow.WriteLine("")
 TextWindow.WriteLine("Please select the shape (Circle, square or rectangle) of which you want to find area or perimeter :- ")
