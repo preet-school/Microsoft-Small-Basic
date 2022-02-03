@@ -1,0 +1,8 @@
+TextWindow.Title = "Perimeter calculator for rectangle"
+TextWindow.WriteLine("Enter the length of the rectangle: ")
+length=TextWindow.ReadNumber()
+TextWindow.WriteLine("Enter the breath of the rectangle: ")
+breath=TextWindow.ReadNumber()
+perimeter=length*2+breath*2
+TextWindow.WriteLine("")
+TextWindow.WriteLine("The perimeter of rectangle is " + perimeter)

@@ -1,0 +1,100 @@
+TextWindow.Title="Triple finder"
+TextWindow.WriteLine("Hello to Preet's new experiment. This is triple finder. This can find area/perimeter of square/rectangle with the help of user's input")
+TextWindow.WriteLine("")
+TextWindow.WriteLine("Please select the shape (Circle, square or rectangle) of which you want to find area or perimeter :- ")
+shape_input=TextWindow.Read()
+If 
+    (shape_input="square" Or shape_input="Square")
+    Then
+    TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
+    calculation_input=TextWindow.Read()
+    If
+        (calculation_input="area" Or calculation_input="Area")
+        Then
+        TextWindow.WriteLine("Okay, so you have selected " + calculation_input + ". Now please enter the side of the square :- ")
+        square_side_input=TextWindow.ReadNumber()
+        area=square_side_input*square_side_input
+        TextWindow.WriteLine("The area of the square is " + area)
+    EndIf
+EndIf    
+
+If
+    (shape_input="square" Or shape_input="Square")
+    Then
+    TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
+    calculation_input1=TextWindow.Read()
+    If
+       (calculation_input1="perimeter" Or calculation_input1="Perimeter")
+        Then
+        TextWindow.WriteLine("Okay, so you have selected " + calculation_input1 + ". Now please enter the side of the square :- ")
+        square_side_input=TextWindow.ReadNumber()
+        perimeter=square_side_input*4
+        TextWindow.WriteLine("The area of the square is " + perimeter) 
+    EndIf
+EndIf  
+
+If
+    (shape_input="rectangle" Or shape_input="Rectangle")
+    Then
+    TextWindow.Writeline("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
+    calculation_input2=TextWindow.ReadNumber()
+    If
+        (calculation_input2="area" or calculation_input2="Area")
+        Then
+        TextWindow.WriteLine("Okay, so you have selected " + calculation_input2 + ". Now please enter the breadth of the rectangle :- ")
+        breadth=TextWindow.ReadNumber()
+        TextWindow.WriteLine("Please enter the length :- ")
+        length=TextWindow.ReadNumber()
+        area=length*breadth
+        TextWindow.WriteLine("The area of the rectangle is " + area + ".")
+    EndIf
+EndIf 
+
+If
+    (shape_input="rectangle" Or shape_input="Rectangle")
+    Then
+    TextWindow.Writeline("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
+    calculation_input3=TextWindow.ReadNumber()
+    If
+        (calculation_input3="perimeter" or calculation_input3="Perimeter")
+        Then
+        TextWindow.WriteLine("Okay, so you have selected " + calculation_input3 + ". Now please enter the breadth of the rectangle :- ")
+        breadth=TextWindow.ReadNumber()
+        TextWindow.WriteLine("Please enter the length :- ")
+        length=TextWindow.ReadNumber()
+        perimeter=2*(length+breadth)
+        TextWindow.WriteLine("The area of the rectangle is " + perimeter + ".")
+    EndIf
+EndIf 
+
+If
+    (shape_input="circle" Or shape_input="Circle")
+    Then
+    TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
+    calculation_input4=TextWindow.ReadNumber()
+    If
+        (calculation_input4="Perimeter" Or calculation_input4="perimeter")
+        Then
+        TextWindow.WriteLine("Okay, so you have selected " + calculation_input4 + ". Now please enter the radius of the circle :- ")
+        radius=TextWindow.ReadNumber()
+        pie=3.14
+        perimeter=pie*2*radius
+        TextWindow.WriteLine("The perimeter of the circle is " + perimeter + ".")
+    EndIf
+EndIf
+
+If
+    (shape_input="circle" Or shape_input="Circle")
+    Then
+    TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
+    calculation_input5=TextWindow.ReadNumber()
+    If
+        (calculation_input5="Area" Or calculation_input4="area")
+        Then
+        TextWindow.WriteLine("Okay, so you have selected " + calculation_input5 + ". Now please enter the radius of the circle :- ")
+        radius_1=TextWindow.ReadNumber()
+        pie=3.14
+        area=pie*radius_1
+        TextWindow.WriteLine("The perimeter of the circle is " + area + ".")
+    EndIf
+EndIf
