@@ -1,6 +1,6 @@
 TextWindow.Title = "Area caluclator for circle"
 TextWindow.WriteLine("Radius of the circle: ")
 radius=TextWindow.ReadNumber()
-pie=3.14
+pie=3.142857142857143
 area=pie*radius*radius
 TextWindow.WriteLine("The area of the circle is " + area)
