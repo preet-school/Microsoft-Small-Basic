@@ -1,7 +1,7 @@
 TextWindow.Title="Triple finder"
 TextWindow.WriteLine("Hello to Preet's new experiment. This is triple finder. This can find area/perimeter of square/rectangle with the help of user's input")
 TextWindow.WriteLine("")
-TextWindow.WriteLine("Please select the shape (Circle, square or rectangle) of which you want to find area or perimeter :- ")
+TextWindow.WriteLine("Please select the shape (Circle, square, rectangle, hexagon and pentagon) of which you want to find area or perimeter :- ")
 shape_input=TextWindow.Read()
 If 
     (shape_input="square" Or shape_input="Square")
@@ -93,8 +93,42 @@ If
         Then
         TextWindow.WriteLine("Okay, so you have selected " + calculation_input5 + ". Now please enter the radius of the circle :- ")
         radius_1=TextWindow.ReadNumber()
-        pie=3.3.142857142857143
+        pie=3.142857142857143
         area=pie*radius_1
         TextWindow.WriteLine("The perimeter of the circle is " + area + ".")
     EndIf
 EndIf
+
+If 
+    (shape_input="hexagon" Or shape_input="Hexagon")
+    Then
+    TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
+    calculation_input6=TextWindow.ReadNumber()
+    If
+        (calculation_input6="Area" Or calculation_input6="area")
+        Then
+        TextWindow.WriteLine("Sorry mate! The feature is still not available.")
+    EndIf
+EndIf
+
+If 
+    (shape_input="hexagon" Or shape_input="Hexagon")
+    Then
+    TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
+    calculation_input7=TextWindow.ReadNumber()
+    If
+        (calculation_input7="Perimeter" Or calculation_input7="perimeter")
+        Then
+        TextWindow.WriteLine("Okay, so you have selected " + calculation_input7 + ". Now please enter the side of the hexagon.")
+        hexagon_side_perimeter=TextWindow.ReadNumber()
+        perimeter_hexagon=hexagon_side_perimeter*6
+        TextWindow.WriteLine("The perimeter of the hexagon is " + perimeter_hexagon + ".")
+    EndIf
+EndIf
+
+If
+    (shape_input="Pentagon" Or shape_input="Pentagon")
+    Then
+    TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find perimeter or area")
+    If
+        
