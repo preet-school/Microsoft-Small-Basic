@@ -1,0 +1,14 @@
+TextWindow.Title="Vowel checker"
+TextWindow.WriteLine("Please enter a alphabet: ")
+alphabet=TextWindow.Read()
+If
+    (alphabet="A" Or alphabet="a" Or alphabet="E" Or alphabet="e" Or alphabet="I" Or alphabet="i" Or alphabet="O" Or alphabet="o" Or alphabet="U" Or alphabet="u")
+    Then
+    TextWindow.WriteLine("You have entered a vowel.")
+ElseIf
+    (alphabet="y" Or alphabet="Y")
+    Then
+    TextWindow.WriteLine("You have entered y. It is neither a constant nor a vowel.")
+Else
+    TextWindow.WriteLine("You have entered a constant.")
+EndIf
