@@ -94,7 +94,7 @@ If
         TextWindow.WriteLine("Okay, so you have selected " + calculation_input5 + ". Now please enter the radius of the circle :- ")
         radius_1=TextWindow.ReadNumber()
         pie=3.142857142857143
-        area=pie*radius_1
+        area=pie*radius_1*radius_1
         TextWindow.WriteLine("The perimeter of the circle is " + area + ".")
     EndIf
 EndIf
