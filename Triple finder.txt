@@ -130,5 +130,25 @@ If
     (shape_input="Pentagon" Or shape_input="Pentagon")
     Then
     TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find perimeter or area")
+    calculation_input8=TextWindow.ReadNumber()
     If
-        
+        (calculation_input8="area" Or calculation_input="Area")
+        Then
+        TextWindow.WriteLine("Sorry mate! This feature is still not available")
+    EndIf
+EndIf
+
+If 
+    (shape_input="Pentagon" Or shape_input="pentagon")
+    Then
+    TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or pentagon")
+    calculation_input9=TextWindow.ReadNumber()
+    If
+        (calculation_input9="Perimeter" Or calculation_input9="perimeter")
+        Then
+        TextWindow.WriteLine("Please enter the side of the pentagon: ")
+        pentagon_side1=TextWindow.ReadNumber()
+        perimeter_pentagon=pentagon_side1*5
+        TextWindow.WriteLine("The perimeter of the pentagon is " + perimeter_pentagon + ".")
+    EndIf
+EndIf
