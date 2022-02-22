@@ -3,6 +3,7 @@ TextWindow.WriteLine("Hello to Preet's new experiment. This is penta finder. Thi
 TextWindow.WriteLine("")
 TextWindow.WriteLine("Please select the shape (Circle, square, rectangle, hexagon and pentagon) of which you want to find area or perimeter :- ")
 shape_input=TextWindow.Read()
+shape_input=Text.ConvertToLowerCase(shape_input)
 If 
     (shape_input="square" Or shape_input="Square")
     Then
