@@ -5,12 +5,13 @@ TextWindow.WriteLine("Please select the shape (Circle, square, rectangle, hexago
 shape_input=TextWindow.Read()
 shape_input=Text.ConvertToLowerCase(shape_input)
 If 
-    (shape_input="square" Or shape_input="Square")
+    (shape_input="square")
     Then
     TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
     calculation_input=TextWindow.Read()
+    calculation_input=Text.ConvertToLowerCase(calculation_input)
     If
-        (calculation_input="area" Or calculation_input="Area")
+        (calculation_input="area")
         Then
         TextWindow.WriteLine("Okay, so you have selected " + calculation_input + ". Now please enter the side of the square :- ")
         square_side_input=TextWindow.ReadNumber()
@@ -20,12 +21,13 @@ If
 EndIf    
 
 If
-    (shape_input="square" Or shape_input="Square")
+    (shape_input="square")
     Then
     TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
     calculation_input1=TextWindow.Read()
+    calculation_input1=Text.ConvertToLowerCase(calculation_input1)
     If
-       (calculation_input1="perimeter" Or calculation_input1="Perimeter")
+       (calculation_input1="perimeter")
         Then
         TextWindow.WriteLine("Okay, so you have selected " + calculation_input1 + ". Now please enter the side of the square :- ")
         square_side_input=TextWindow.ReadNumber()
@@ -35,12 +37,13 @@ If
 EndIf  
 
 If
-    (shape_input="rectangle" Or shape_input="Rectangle")
+    (shape_input="rectangle")
     Then
     TextWindow.Writeline("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
-    calculation_input2=TextWindow.ReadNumber()
+    calculation_input2=TextWindow.Read()
+    calculation_input2=Text.ConvertToLowerCase(calculation_input2)
     If
-        (calculation_input2="area" or calculation_input2="Area")
+        (calculation_input2="area")
         Then
         TextWindow.WriteLine("Okay, so you have selected " + calculation_input2 + ". Now please enter the breadth of the rectangle :- ")
         breadth=TextWindow.ReadNumber()
@@ -52,12 +55,13 @@ If
 EndIf 
 
 If
-    (shape_input="rectangle" Or shape_input="Rectangle")
+    (shape_input="rectangle")
     Then
     TextWindow.Writeline("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
-    calculation_input3=TextWindow.ReadNumber()
+    calculation_input3=TextWindow.Read()
+    calculation_input3=Text.ConvertToLowerCase(calculation_input3)
     If
-        (calculation_input3="perimeter" or calculation_input3="Perimeter")
+        (calculation_input3="perimeter")
         Then
         TextWindow.WriteLine("Okay, so you have selected " + calculation_input3 + ". Now please enter the breadth of the rectangle :- ")
         breadth=TextWindow.ReadNumber()
@@ -69,12 +73,13 @@ If
 EndIf 
 
 If
-    (shape_input="circle" Or shape_input="Circle")
+    (shape_input="circle")
     Then
     TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
-    calculation_input4=TextWindow.ReadNumber()
+    calculation_input4=TextWindow.Read()
+    calculation_input4=Text.ConvertToLowerCase(calculation_input4)
     If
-        (calculation_input4="Perimeter" Or calculation_input4="perimeter")
+        (calculation_input4="perimeter")
         Then
         TextWindow.WriteLine("Okay, so you have selected " + calculation_input4 + ". Now please enter the radius of the circle :- ")
         radius=TextWindow.ReadNumber()
@@ -85,12 +90,13 @@ If
 EndIf
 
 If
-    (shape_input="circle" Or shape_input="Circle")
+    (shape_input="circle")
     Then
     TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
-    calculation_input5=TextWindow.ReadNumber()
+    calculation_input5=TextWindow.Read()
+    calculation_input5=Text.ConvertToLowerCase(calculation_input5)
     If
-        (calculation_input5="Area" Or calculation_input4="area")
+        (calculation_input5="area")
         Then
         TextWindow.WriteLine("Okay, so you have selected " + calculation_input5 + ". Now please enter the radius of the circle :- ")
         radius_1=TextWindow.ReadNumber()
@@ -101,24 +107,26 @@ If
 EndIf
 
 If 
-    (shape_input="hexagon" Or shape_input="Hexagon")
+    (shape_input="hexagon")
     Then
     TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
-    calculation_input6=TextWindow.ReadNumber()
+    calculation_input6=TextWindow.Read()
+    calculation_input6=Text.ConvertToLowerCase(calculation_input6)
     If
-        (calculation_input6="Area" Or calculation_input6="area")
+        (calculation_input6="area")
         Then
         TextWindow.WriteLine("Sorry mate! The feature is still not available.")
     EndIf
 EndIf
 
 If 
-    (shape_input="hexagon" Or shape_input="Hexagon")
+    (shape_input="hexagon")
     Then
     TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or perimeter.")
-    calculation_input7=TextWindow.ReadNumber()
+    calculation_input7=TextWindow.Read()
+    calculation_input7=Text.ConvertToLowerCase(calculation_input7)
     If
-        (calculation_input7="Perimeter" Or calculation_input7="perimeter")
+        (calculation_input7="perimeter")
         Then
         TextWindow.WriteLine("Okay, so you have selected " + calculation_input7 + ". Now please enter the side of the hexagon.")
         hexagon_side_perimeter=TextWindow.ReadNumber()
@@ -128,10 +136,11 @@ If
 EndIf
 
 If
-    (shape_input="Pentagon" Or shape_input="Pentagon")
+    (shape_input="pentagon")
     Then
     TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find perimeter or area")
-    calculation_input8=TextWindow.ReadNumber()
+    calculation_input8=TextWindow.Read()
+    calculation_input8=Text.ConvertToLowerCase(calculation_input8)
     If
         (calculation_input8="area" Or calculation_input="Area")
         Then
@@ -140,10 +149,11 @@ If
 EndIf
 
 If 
-    (shape_input="Pentagon" Or shape_input="pentagon")
+    (shape_input="pentagon")
     Then
     TextWindow.WriteLine("Okay, so you have selected " + shape_input + ". Now please say that do you want to find area or pentagon")
-    calculation_input9=TextWindow.ReadNumber()
+    calculation_input9=TextWindow.Read()
+    calculation_input9=Text.ConvertToLowerCase(calculation_input9)
     If
         (calculation_input9="Perimeter" Or calculation_input9="perimeter")
         Then
